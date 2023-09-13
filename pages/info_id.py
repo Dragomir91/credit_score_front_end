@@ -25,7 +25,7 @@ def request_prediction(model_uri, data):
 
 
 def main():
-    API_URI = 'http://127.0.0.1:8000/id_client/id'
+    API_URI = 'https://credit-score-backend.onrender.com/info_client/id'
 
 
     st.title('Information client')

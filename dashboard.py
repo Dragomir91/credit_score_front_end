@@ -54,16 +54,18 @@ def request_prediction_shap(model_uri, data):
 
 
 def main():
-    API_URI = 'http://127.0.0.1:8000/predict'
-    API_URI2 = 'http://127.0.0.1:8000/predict/model_shap'
-    API_URI3 = 'http://127.0.0.1:8000/predict/explain'
-
+    API_URI = 'https://credit-score-backend.onrender.com/predict'
+    API_URI2 = 'https://credit-score-backend.onrender.com/predict/shap_id'
+    API_URI3 = 'https://credit-score-backend.onrender.com/predict/explain'
+    #API_URI = 'http://127.0.0.1:8000/predict'
+    #API_URI2 = 'http://127.0.0.1:8000/predict/model_shap'
+    #API_URI3 = 'http://127.0.0.1:8000/predict/explain'
 
 
     st.title('Scores clients')
     st.subheader('Decison credit')
 
-    id = st.number_input('saisir id client', value=0., step=1.)
+    id = st.number_input('saisir id client', value=100002., step=1.)
 
     predict_btn = st.button('Predire')
     if predict_btn:
