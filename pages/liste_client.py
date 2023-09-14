@@ -18,8 +18,8 @@ def request_prediction(model_uri, data):
 
 
 def main():
-    API_URI = 'https://credit-score-backend.onrender.com/id_client'
-    #API_URI = 'http://127.0.0.1:8000/id_client'
+    #API_URI = 'https://credit-score-backend.onrender.com/id_client'
+    API_URI = 'http://127.0.0.1:8000/id_client'
     st.title('Information client')
     predict_btn = st.button('list des clients')     
 
@@ -36,7 +36,7 @@ def main():
         "info_id":data_client["infos_id"][:100],
         }
         st.write('liste des clients disponibles',pd.DataFrame(df))
-        st.write('liste des clients disponibles',pd.DataFrame(df2))
+        st.write('données disponibles',pd.DataFrame(df2))
 
         #st.write('information client',pd.Series(data_client['information_client']))
 
