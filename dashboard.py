@@ -72,7 +72,7 @@ def main():
     API_URI = 'https://credit-score-backend.onrender.com/predict'
     API_URI2 = 'https://credit-score-backend.onrender.com/predict/shap_id'
     API_URI3 = 'https://credit-score-backend.onrender.com/predict/explain'
-    API_URI4 = 'https://credit-score-backend.onrender.com/cout_metier'
+    API_URI4 = 'https://credit-score-backend.onrender.com/predict//cout_metier'
     #API_URI = 'http://127.0.0.1:8000/predict'
     #API_URI2 = 'http://127.0.0.1:8000/predict/shap_id'
     #API_URI3 = 'http://127.0.0.1:8000/predict/explain'
