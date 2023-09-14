@@ -35,7 +35,7 @@ def request_prediction2(model_uri, data):
     return response.json()
 def main():
     API_URI = 'https://credit-score-backend.onrender.com/info_client'
-    API_URI2 = 'https://credit-score-backend.onrender.com/info_client/id_all'
+    API_URI2 = 'https://credit-score-backend.onrender.com/info_clients/id_all'
     #API_URI = 'http://127.0.0.1:8000/info_client'
     #API_URI2 = 'http://127.0.0.1:8000/info_clients/id_all'
 
