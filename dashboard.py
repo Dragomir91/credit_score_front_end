@@ -2,10 +2,9 @@
 import pandas as pd
 import streamlit as st
 import requests
-#from streamlit_shap import st_shap
-#import shap
+from streamlit_shap import st_shap
 import numpy as np
-#import plotly.express as px
+import plotly.express as px
 
 def liste_id(model_uri, data):
     headers = {"Content-Type": "application/json"}
