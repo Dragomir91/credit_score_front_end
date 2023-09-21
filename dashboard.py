@@ -2,7 +2,7 @@
 import pandas as pd
 import streamlit as st
 import requests
-from streamlit_shap import st_shap
+#from streamlit_shap import st_shap
 import shap
 import numpy as np
 import plotly.express as px
