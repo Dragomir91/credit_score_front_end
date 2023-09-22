@@ -162,7 +162,7 @@ def main():
                 feature_names=data_shap["feature_names"])
 
                 if pred["decision_id"] == 0:
-                    st.write('in if')
+                    
                     shap_values.base_values = 1 - shap_values.base_values
                     shap_values.values = -shap_values.values
                     st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
