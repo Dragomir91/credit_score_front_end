@@ -5,6 +5,7 @@ import requests
 from streamlit_shap import st_shap
 import numpy as np
 import plotly.express as px
+import shap
 
 def liste_id(model_uri, data):
     headers = {"Content-Type": "application/json"}
