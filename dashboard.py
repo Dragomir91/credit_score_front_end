@@ -115,7 +115,7 @@ def main():
     st.subheader('Decison credit')
 
     #id = st.number_input('saisir id client', value=id, step=1.)
-    try id:
+    try:
         predict_btn = st.checkbox('Predire')
         if predict_btn:
             data = [id[0], 0,0]
