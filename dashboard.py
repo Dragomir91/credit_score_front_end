@@ -156,13 +156,12 @@ def main():
                 
                 data3 = [id[0],0,0]
                 data_shap = request_prediction_shap(API_URI3, data3) 
-                st.write(data_shap)
                 shap_values = shap.Explanation(values=np.array(data_shap["values"]),
                 base_values=data_shap["base_values"],
                 data = data_shap["data"],
                 feature_names=data_shap["feature_names"])
                 
-                #st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
+                st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
 
 
 
