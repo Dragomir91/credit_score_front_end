@@ -9,3 +9,4 @@ seaborn==0.12.2
 shap==0.42.1
 streamlit-shap == 1.0.2
 numba == 0.57.1
+streamlit == 1.26.0
