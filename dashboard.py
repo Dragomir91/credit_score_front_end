@@ -100,7 +100,7 @@ def main():
 
     df = {
         "list_id": data_client["list_id"],
-        }
+        } 
 
     df2 = {
         "info_id":data_client["infos_id"],
@@ -160,8 +160,14 @@ def main():
                 base_values=data_shap["base_values"],
                 data = data_shap["data"],
                 feature_names=data_shap["feature_names"])
-                
-                st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
+
+                if pred["decision_id"] == 0:
+                    st.write('in if')
+                    shap_values.base_values = 1 - shap_values.base_values
+                    shap_values.values = -shap_values.values
+                    st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
+
+                else : st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
 
 
 
