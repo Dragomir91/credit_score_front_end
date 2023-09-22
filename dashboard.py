@@ -115,7 +115,7 @@ def main():
     st.subheader('Decison credit')
 
     #id = st.number_input('saisir id client', value=id, step=1.)
-    if id:
+    try id:
         predict_btn = st.checkbox('Predire')
         if predict_btn:
             data = [id[0], 0,0]
@@ -220,7 +220,7 @@ def main():
     
     ##############################################COUT_METIER#####################################################
 
-    else: 'un seul id doit être séléctionné'
+    except: 'un seul id doit être séléctionné'
 
 if __name__ == '__main__':
     main()
