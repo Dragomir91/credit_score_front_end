@@ -160,14 +160,12 @@ def main():
                 base_values=data_shap["base_values"],
                 data = data_shap["data"],
                 feature_names=data_shap["feature_names"])
-
-                if pred["decision_id"] == 0:
                     
-                    shap_values.base_values = 1 - shap_values.base_values
-                    shap_values.values = -shap_values.values
-                    st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
+                shap_values.base_values = 1 - shap_values.base_values
+                shap_values.values = -shap_values.values
+                st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
 
-                else : st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
+                
 
 
 
