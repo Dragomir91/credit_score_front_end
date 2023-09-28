@@ -162,7 +162,7 @@ def main():
                 st.markdown("- La flèche de couleur rouge améliore le score client")
 
 
-                btn = st.button('Comparaison des données clients sur l'ensemble des clients')
+                btn = st.button('Comparaison des données clients sur l ensemble des clients')
                 if btn:
                                 
                         data4 = [id[0], 0,0]
