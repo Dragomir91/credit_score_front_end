@@ -97,7 +97,7 @@ def main():
     st.title('Information client')
 
     data_client = liste_id(API_URI5, [0])
-        #st.write('liste des clients disponibles',data_client['id_client'])
+    #st.write('liste des clients disponibles',data_client['id_client'])
 
     df = {
         "list_id": data_client["list_id"],
