@@ -110,7 +110,7 @@ def main():
 
     #id = st.number_input('Saisir id client', value=id, step=1.)
     try :
-        predict_btn = st.checkbox('Predire')
+        predict_btn = st.checkbox('Décision sur la demande d emprunt')
         if predict_btn:
             data = [id[0], 0,0]
             pred = None
