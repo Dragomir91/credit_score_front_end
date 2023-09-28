@@ -2,16 +2,14 @@
 import pandas as pd
 import streamlit as st
 import requests
-from streamlit_shap import st_shap
+#from streamlit_shap import st_shap
 import numpy as np
 import plotly.express as px
-import shap
 
 def liste_id(model_uri, data):
     headers = {"Content-Type": "application/json"}
 
-    data_json = {"list_id" : [0],
-                 "infos_id" : [0]}
+    data_json = {}
     response = requests.request(
         method='GET', headers=headers, url=model_uri, json=data_json)
 
@@ -94,11 +92,32 @@ def main():
 
 
  
+    st.title('Information client')
 
-    try:
+    data_client = liste_id(API_URI5, [0])
+        #st.write('liste des clients disponibles',data_client['id_client'])
+
+    df = {
+        "list_id": data_client["list_id"],
+        }
+
+    df2 = {
+        "info_id":data_client["infos_id"],
+    }
+
+
+    id = st.multiselect('choisir un id',df["list_id"])
+
+    #st.write('information client',pd.Series(data_client['information_client']))
+
+    st.title('Scores clients')
+    st.subheader('Decison credit')
+
+    #id = st.number_input('saisir id client', value=id, step=1.)
+    try :
         predict_btn = st.checkbox('Predire')
         if predict_btn:
-            data = [100001, 0,0]
+            data = [id[0], 0,0]
             pred = None
 
             pred = request_prediction(API_URI, data)
@@ -130,28 +149,18 @@ def main():
                 
                     
     ##############################################SHAP_VALUE###################################################
-        shap_btn = st.checkbox('information sur la prédiction')
+        shap_btn = st.checkbox('shap_value')
        
         if shap_btn:
                 
-                data3 = [id[0],0,0]
-                data_shap = request_prediction_shap(API_URI3, data3) 
+                """data3 = [id[0],0,0]
+                data_shap = request_prediction_shap(API_URI3, data3)                            
                 shap_values = shap.Explanation(values=np.array(data_shap["values"]),
                 base_values=data_shap["base_values"],
                 data = data_shap["data"],
                 feature_names=data_shap["feature_names"])
-                    
-                shap_values.base_values = 1 - shap_values.base_values
-                shap_values.values = -shap_values.values
+                st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)"""
 
-                st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
-
-                info_shap = '''Sur le graphique prédisant le score client :'''
-                info_shap1 = '''- les valeurs avec une flèche bleue pénalisent le client'''
-                info_shap2 = '''- les valeurs avec une flèche rouge améliorent le score client'''
-                st.markdown(info_shap)
-                st.markdown(info_shap1)
-                st.markdown(info_shap2)
 
 
 
@@ -209,7 +218,7 @@ def main():
     
     ##############################################COUT_METIER#####################################################
 
-    except: 'un seul id doit être séléctionné'
+    except: 'un seul id doit être séléctionner'
 
 if __name__ == '__main__':
     main()
