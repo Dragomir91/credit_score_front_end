@@ -162,8 +162,9 @@ def main():
                 shap_values.base_values = 1 - shap_values.base_values 
                 shap_values.values = -shap_values.values
                 st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
-
-
+                st.markdown("Pour inerpréter les résultats du graphique ci-dessus")
+                st.markdown("- La flèche de couleur bleue pénalisent le score client")
+                st.markdown("- La flèche de couleur rouge améliore le score client")
 
 
                 btn = st.button('visualition des données clients')
