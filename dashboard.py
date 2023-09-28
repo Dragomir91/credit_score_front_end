@@ -95,7 +95,7 @@ def main():
 
  
     st.title('Information client')
-
+"""
     data_client = liste_id(API_URI5, [0])
     #st.write('liste des clients disponibles',data_client['id_client'])
 
@@ -105,10 +105,10 @@ def main():
 
     df2 = {
         "info_id":data_client["infos_id"],
-    }
+    }"""
 
 
-    id = st.multiselect('choisir un id',df["list_id"])
+    id = st.multiselect('choisir un id',[100001])
 
     #st.write('information client',pd.Series(data_client['information_client']))
 
