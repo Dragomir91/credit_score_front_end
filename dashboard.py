@@ -108,7 +108,7 @@ def main():
     }"""
 
 
-    id = st.multiselect('choisir un id',[100001,100003])
+    id = st.multiselect('choisir un id',100001)
 
     #st.write('information client',pd.Series(data_client['information_client']))
 
