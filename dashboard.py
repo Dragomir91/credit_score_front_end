@@ -150,7 +150,7 @@ def main():
                 
                     
     ##############################################SHAP_VALUE###################################################
-        shap_btn = st.checkbox('shap_value')
+        shap_btn = st.checkbox('information sur la prédiction')
        
         if shap_btn:
                 
@@ -164,6 +164,9 @@ def main():
                 shap_values.base_values = 1 - shap_values.base_values
                 shap_values.values = -shap_values.values
                 st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
+                st.text("Sur le graphique prédisant le score client : 
+                 - les valeurs avec une flèche bleue pénalisent le client,
+                 - les valeurs avec une flèche rouge améliorent le score client.")
 
                 
 
