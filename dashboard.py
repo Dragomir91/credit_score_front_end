@@ -123,7 +123,7 @@ def main():
             "proba":[round(pred["proba"],2)]
             }
             
-            st.write('liste des clients disponibles',pd.DataFrame(df))
+            st.write('',pd.DataFrame(df))
             if df['decision'][0] == 0:
                 st.subheader('le crédit peut être accordé')
 
