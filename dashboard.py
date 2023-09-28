@@ -108,7 +108,7 @@ def main():
     st.title('Scores clients')
     st.subheader('Decison credit')
 
-    #id = st.number_input('saisir id client', value=id, step=1.)
+    #id = st.number_input('Saisir id client', value=id, step=1.)
     try :
         predict_btn = st.checkbox('Predire')
         if predict_btn:
@@ -134,7 +134,7 @@ def main():
     #######################################################################""""
 
 
-        info_btn = st.checkbox('informations sur cet id')
+        info_btn = st.checkbox('Informations sur cet id')
         if info_btn:
             data2 = [id[0], 0,0]
             data_shap = request_explain_shap(API_URI2, data2) 
@@ -144,7 +144,7 @@ def main():
                 
                     
     ##############################################SHAP_VALUE###################################################
-        shap_btn = st.checkbox('détail sur le score attribué au client')
+        shap_btn = st.checkbox('Détail sur le score attribué au client')
        
         if shap_btn:
                 
@@ -162,7 +162,7 @@ def main():
                 st.markdown("- La flèche de couleur rouge améliore le score client")
 
 
-                btn = st.button('visualition des données clients')
+                btn = st.button('Comparaison des données clients sur l'ensemble des clients')
                 if btn:
                                 
                         data4 = [id[0], 0,0]
