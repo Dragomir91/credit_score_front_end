@@ -25,7 +25,7 @@ This dashboard provides information about the prediction of whether to grant or 
 1. Get a free API Key at [(https://creditscorefrontend-uoknuhh42kpksddm93sy5p.streamlit.app/)
 2. Clone the repo
    ```sh
-   git clone (https://github.com/Dragomir91/credit_score_front_end.git)
+   git clone https://github.com/Dragomir91/credit_score_front_end.git
    ```
 
 <p align="right">(<a href="#readme-top">back to top/a>)</p>
