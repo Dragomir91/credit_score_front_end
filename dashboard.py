@@ -101,11 +101,6 @@ def main():
         "list_id": data_client["list_id"],
         }
 
-    df2 = {
-        "info_id":data_client["infos_id"],
-    }
-
-
     id = st.multiselect('choisir un id',df["list_id"])
 
     #st.write('information client',pd.Series(data_client['information_client']))
@@ -149,7 +144,7 @@ def main():
                 
                     
     ##############################################SHAP_VALUE###################################################
-        shap_btn = st.checkbox('shap_value')
+        shap_btn = st.checkbox('détail sur le score attribué au client')
        
         if shap_btn:
                 
