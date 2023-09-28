@@ -94,28 +94,7 @@ def main():
 
 
  
-    st.title('Information client')
-"""
-    data_client = liste_id(API_URI5, [0])
-    #st.write('liste des clients disponibles',data_client['id_client'])
 
-    df = {
-        "list_id": data_client["list_id"],
-        } 
-
-    df2 = {
-        "info_id":data_client["infos_id"],
-    }
-
-
-    id = st.multiselect('choisir un id',100001)"""
-
-    #st.write('information client',pd.Series(data_client['information_client']))
-
-    st.title('Scores clients')
-    st.subheader('Decison credit')
-
-    #id = st.number_input('saisir id client', value=id, step=1.)
     try:
         predict_btn = st.checkbox('Predire')
         if predict_btn:
