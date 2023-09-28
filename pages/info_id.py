@@ -36,8 +36,7 @@ def request_prediction2(model_uri, data):
 def main():
     API_URI = 'https://credit-score-backend.onrender.com/info_client'
     API_URI2 = 'https://credit-score-backend.onrender.com/info_clients/id_all'
-    #API_URI = 'http://127.0.0.1:8000/info_client'
-    #API_URI2 = 'http://127.0.0.1:8000/info_clients/id_all'
+
 
     st.title('Information client')
     #st.subheader('Number of pickups by hour')
@@ -53,7 +52,7 @@ def main():
     
     print(options)
 
-    id = st.number_input('saisir id client', value=100002., step=1.)
+    id = st.number_input('saisir id client', value=100001., step=1.)
     st.write('id = ', id)
     predict_btn = st.button('information sur le client')
 
