@@ -10,7 +10,8 @@ import shap
 def liste_id(model_uri, data):
     headers = {"Content-Type": "application/json"}
 
-    data_json = {}
+    data_json = {"list_id" : [],
+                 "infos_id" : []}
     response = requests.request(
         method='GET', headers=headers, url=model_uri, json=data_json)
 
