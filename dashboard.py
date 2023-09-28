@@ -105,10 +105,10 @@ def main():
 
     df2 = {
         "info_id":data_client["infos_id"],
-    }"""
+    }
 
 
-    id = st.multiselect('choisir un id',100001)
+    id = st.multiselect('choisir un id',100001)"""
 
     #st.write('information client',pd.Series(data_client['information_client']))
 
@@ -119,7 +119,7 @@ def main():
     try:
         predict_btn = st.checkbox('Predire')
         if predict_btn:
-            data = [id[0], 0,0]
+            data = [100001, 0,0]
             pred = None
 
             pred = request_prediction(API_URI, data)
