@@ -6,6 +6,8 @@ from streamlit_shap import st_shap
 import numpy as np
 import plotly.express as px
 import shap
+
+
 def liste_id(model_uri, data):
     headers = {"Content-Type": "application/json"}
 
@@ -18,6 +20,7 @@ def liste_id(model_uri, data):
             "Request failed with status {}, {}".format(response.status_code, response.text))
 
     return response.json()
+    
 
 def request_prediction(model_uri, data):
     
@@ -34,6 +37,7 @@ def request_prediction(model_uri, data):
             "Request failed with status {}, {}".format(response.status_code, response.text))
 
     return response.json()
+    
 
 def request_explain_shap(model_uri, data2):
     
@@ -50,6 +54,7 @@ def request_explain_shap(model_uri, data2):
             "Request failed with status {}, {}".format(response.status_code, response.text))
 
     return response.json()
+    
 
 def request_prediction_shap(model_uri, data3):
     
@@ -66,6 +71,7 @@ def request_prediction_shap(model_uri, data3):
             "Request failed with status {}, {}".format(response.status_code, response.text))
 
     return response.json()
+    
 
 def request_cout_metier(model_uri, data4):
     
@@ -84,13 +90,13 @@ def request_cout_metier(model_uri, data4):
     return response.json()
 
 def main():
+
+    
     API_URI = 'https://credit-score-backend.onrender.com/predict'
     API_URI2 = 'https://credit-score-backend.onrender.com/predict/feature_id'
     API_URI3 = 'https://credit-score-backend.onrender.com/predict/explain'
     API_URI4 = 'https://credit-score-backend.onrender.com/predict/graph_id'
     API_URI5 = 'https://credit-score-backend.onrender.com/id_client'
-
-
  
     st.title('Information client')
 
@@ -131,7 +137,7 @@ def main():
                 st.subheader('le crédit est refusé')
             
             #st.write('y_pred {}'.format(pred))
-    #######################################################################""""
+    #######################################################################
 
 
         info_btn = st.checkbox('Informations sur cet id')
@@ -204,17 +210,16 @@ def main():
                                 color = 'ID',
                                 hover_name="ID")                       
                         tab1, tab2 = st.tabs(["EXT_SOURCE2", "AMT_ANNUITY"])
+                    
                         with tab1:
                             # Use the Streamlit theme.
                             # This is the default. So you can also omit the theme argument.
                             st.plotly_chart(fig)
+                            
                         with tab2:
                             # Use the native Plotly theme.
                             st.plotly_chart(fig2)
 
-                              
-    
-    ##############################################COUT_METIER#####################################################
 
     except: 'un seul id doit être séléctionner'
 
