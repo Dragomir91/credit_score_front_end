@@ -107,7 +107,7 @@ def main():
         "list_id": data_client["list_id"],
         }
 
-    id = st.multiselect('choisir un seul id compris entre 1000001 et 101356',df["list_id"])
+    id = st.multiselect('choisir un seul id compris entre 100001 et 101356',df["list_id"])
 
     #st.write('information client',pd.Series(data_client['information_client']))
 
