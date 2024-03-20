@@ -107,7 +107,7 @@ def main():
         "list_id": data_client["list_id"],
         }
 
-    id = st.multiselect('choisir un id',df["list_id"])
+    id = st.multiselect('choisir un seul id compris entre 1000001 et 101356',df["list_id"])
 
     #st.write('information client',pd.Series(data_client['information_client']))
 
@@ -150,6 +150,7 @@ def main():
                 
                     
     ##############################################SHAP_VALUE###################################################
+        # La méthode shap.Explanation permet d'apporter des explications sur les variables contribuant à un score de probabilité positif et celles affaiblisant ce score. 
         shap_btn = st.checkbox('Détail sur le score attribué au client')
        
         if shap_btn:
@@ -163,12 +164,13 @@ def main():
                 shap_values.base_values = 1 - shap_values.base_values 
                 shap_values.values = -shap_values.values
                 st_shap(shap.plots.waterfall(shap_values,max_display=10),height=500, width=1100)
-                st.markdown("Pour inerpréter les résultats du graphique ci-dessus")
+                st.markdown("Pour interpréter les résultats du graphique ci-dessus")
                 st.markdown("- La flèche de couleur bleue pénalise le score client")
                 st.markdown("- La flèche de couleur rouge améliore le score client")
 
 
                 btn = st.button('Comparaison des données clients sur l ensemble des clients')
+                # Affichage graphique 
                 if btn:
                                 
                         data4 = [id[0], 0,0]
