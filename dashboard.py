@@ -1,4 +1,3 @@
-#from turtle import color
 import pandas as pd
 import streamlit as st
 import requests
@@ -105,16 +104,13 @@ def main():
 
     df = {
         "list_id": data_client["list_id"],
-        }
+         }
 
     id = st.multiselect('choisir un seul id compris entre 100001 et 101356',df["list_id"])
-
-    #st.write('information client',pd.Series(data_client['information_client']))
-
     st.title('Scores clients')
     st.subheader('Decison credit')
 
-    #id = st.number_input('Saisir id client', value=id, step=1.)
+    # Affiche le score de probabilité pour l'accord de l'emprunt bancaire (le score doit être supérieur à 0.50 pour l'accord du crédit)
     try :
         predict_btn = st.checkbox('Décision sur la demande d emprunt')
         if predict_btn:
@@ -136,9 +132,7 @@ def main():
             else :
                 st.subheader('le crédit est refusé')
             
-            #st.write('y_pred {}'.format(pred))
-    #######################################################################
-
+    ##############################################Information personnel sur le client demandant le crédit##############################################
 
         info_btn = st.checkbox('Informations sur cet id')
         if info_btn:
@@ -149,12 +143,14 @@ def main():
             st.write(pd.DataFrame(df_json.values,columns=df_json.columns, index = [id]))
                 
                     
-    ##############################################SHAP_VALUE###################################################
+    ##############################################SHAP_VALUE##############################################
+        
         # La méthode shap.Explanation permet d'apporter des explications sur les variables contribuant à un score de probabilité positif et celles affaiblisant ce score. 
         shap_btn = st.checkbox('Détail sur le score attribué au client')
        
         if shap_btn:
-                
+
+    # Affichage des shap value permettant d'expliquer au client le choix d'accord ou de refus de l'emprunt
                 data3 = [id[0],0,0]
                 data_shap = request_prediction_shap(API_URI3, data3)                            
                 shap_values = shap.Explanation(values=np.array(data_shap["values"]),
@@ -170,7 +166,7 @@ def main():
 
 
                 btn = st.button('Comparaison des données clients sur l ensemble des clients')
-                # Affichage graphique 
+    # Affichage graphique 
                 if btn:
                                 
                         data4 = [id[0], 0,0]
@@ -185,7 +181,8 @@ def main():
                         EXT_SOURCE2_REFUSE = df.loc[df['Y_PRED_PV_ID'] == 1,'EXT_SOURCE_2_PV_ID'].mean()
                         AMT_ANNUITY_ACCEPT = df.loc[df['Y_PRED_PV_ID'] == 0,'AMT_ANNUITY_PV_ID'].mean()
                         AMT_ANNUITY_REFUSE = df.loc[df['Y_PRED_PV_ID'] == 1,'AMT_ANNUITY_PV_ID'].mean()
-
+                    
+# Visualisation des données personnels du demandeur d'emprunt
                         chart_data = pd.DataFrame({
                                         'ID' : ['ID_EXT_SOURCE_2','EXT_SOURCE2_MEAN','EXT_SOURCE2_ACCEPT','EXT_SOURCE2_REFUSE'],
                                         'RESULTAT' : [EXT_SOURCE2.values[0], EXT_SOURCE2_MEAN,EXT_SOURCE2_ACCEPT,EXT_SOURCE2_REFUSE],
