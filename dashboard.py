@@ -90,7 +90,6 @@ def request_cout_metier(model_uri, data4):
 
 def main():
 
-    
     API_URI = 'https://credit-score-backend.onrender.com/predict'
     API_URI2 = 'https://credit-score-backend.onrender.com/predict/feature_id'
     API_URI3 = 'https://credit-score-backend.onrender.com/predict/explain'
@@ -100,8 +99,7 @@ def main():
     st.title('Information client')
 
     data_client = liste_id(API_URI5, [0])
-        #st.write('liste des clients disponibles',data_client['id_client'])
-
+    
     df = {
         "list_id": data_client["list_id"],
          }
@@ -127,10 +125,10 @@ def main():
             
             st.write('',pd.DataFrame(df))
             if df['decision'][0] == 0:
-                st.subheader('le crédit peut être accordé')
+                st.subheader('Le crédit peut être accordé.')
 
             else :
-                st.subheader('le crédit est refusé')
+                st.subheader('Le crédit est refusé.')
             
     ##############################################Information personnel sur le client demandant le crédit##############################################
 
