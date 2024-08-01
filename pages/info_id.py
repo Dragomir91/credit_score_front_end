@@ -54,14 +54,16 @@ def main():
 
     id = st.number_input('saisir id client', value=100001., step=1.)
     st.write('id = ', id)
-    predict_btn = st.button('information sur le client')
+    predict_btn = st.checkbox('information sur le client')
+    try : 
+        if predict_btn:
+            data_ = [id,options]
+            info_client = request_prediction(API_URI, data_)
+            df = pd.read_json(info_client)
+            st.write('informations client',pd.DataFrame(df.values,index = [id], columns=options))
 
-    if predict_btn:
-        data_ = [id,options]
-        info_client = request_prediction(API_URI, data_)
-        df = pd.read_json(info_client)
-        st.write('informations client',pd.DataFrame(df.values,index = [id], columns=options))
-    else : st.write('pas de liste')
+    except:
+        st.write('id pas de liste')
 
 
     predict_btn = st.button('information sur plusieurs clients')
