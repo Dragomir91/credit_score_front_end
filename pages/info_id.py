@@ -78,7 +78,7 @@ def main():
         st.write('id pas de liste')  # Afficher un message d'erreur si l'ID du client est invalide
 
     # Bouton pour récupérer les informations de plusieurs clients
-    predict_btn = st.button('information sur plusieurs clients')
+    predict_btn = st.button('Information sur plusieurs clients')
 
     if predict_btn:
         data_ = [id, options]  # Créer la liste des données à envoyer à l'API
