@@ -126,7 +126,7 @@ def main():
             st.write('',pd.DataFrame(df))
             if df['decision'][0] == 0:
                 st.subheader(f'Le score obtenu est de {round(pred["proba"],2)}.')
-                st.subheader(f'Le crédit peut être accordé.')
+                st.subheader('Le crédit peut être accordé.')
 
             else :
                 st.subheader('Le score est inférieur à O.5.')
