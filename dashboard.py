@@ -119,8 +119,8 @@ def main():
 
             df = {
             "id_client":[pred["id"]],
-            "decision":[pred["decision_id"]],
-            "proba":[round(pred["proba"],2)]
+            "decision_credit":[pred["decision_id"]],
+            "score":[round(pred["proba"],2)]
             }
             
             st.write('',pd.DataFrame(df))
