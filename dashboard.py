@@ -124,7 +124,7 @@ def main():
             }
             
             st.write('',pd.DataFrame(df))
-            if df['decision'][0] == 0:
+            if df['decision_credit'][0] == 0:
                 st.subheader(f'Le score obtenu est de {round(pred["proba"],2)}.')
                 st.subheader('Le crédit peut être accordé.')
 
