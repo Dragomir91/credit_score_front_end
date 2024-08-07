@@ -96,7 +96,7 @@ def main():
     API_URI4 = 'https://credit-score-backend.onrender.com/predict/graph_id'
     API_URI5 = 'https://credit-score-backend.onrender.com/id_client'
  
-    st.title('Information client')
+    st.title('Demande de crédit')
 
     data_client = liste_id(API_URI5, [0])
     
